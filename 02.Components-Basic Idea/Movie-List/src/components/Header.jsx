@@ -1,7 +1,7 @@
-export default function Header(){
+export default function Header(props){
     return (
     <header>
-      <h1>Hello world!</h1>
-      <h2>Lorem, ipsum.</h2>
+      <h1>{props.title}</h1>
+      <h2>{props.subheading}</h2>
     </header>)
 }

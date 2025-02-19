@@ -4,7 +4,7 @@ import Header from "./components/header";
 function App() {
   return (
     <>
-      <Header />
+      <Header title="Hello from Props" subheading="Lorem, ipsum."/>
       <Body />
       <footer>Lorem, ipsum.</footer>
     </>
