@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import MovieListItem from "./components/movieListItem";
 
 // const movies = [
 //   {
@@ -86,13 +87,14 @@ function App() {
 
   // * the keys should be unique among siblings(map/ul ctxs)
   // * the keys should be unchanged between renders
+  // * the key goes in the map function
 
   return (
     <>
       <h2>Movie List:</h2>
       <ul>
         {movies.map((movie) => (
-          <li key={movie.id}>{movie.title}</li>
+          <MovieListItem key={movie.id} movie={movie} />
         ))}
       </ul>
       <button onClick={removeFirsthandler}>Remove First</button>
