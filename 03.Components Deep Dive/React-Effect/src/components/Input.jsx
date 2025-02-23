@@ -10,7 +10,8 @@ export default function Input() {
   useEffect(() => {
     console.log(`text change ${text}`);
     //Clean up function
-    return () => console.log("before new change, when discarding old text");
+    return () =>
+      console.log("before new text change, when discarding old text");
   }, [text]);
 
   useEffect(() => {
