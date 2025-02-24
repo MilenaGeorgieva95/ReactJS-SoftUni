@@ -1,11 +1,22 @@
-import "./App.css";
-import TodoList from "./components/TodoList";
+import Footer from "./components/Footer";
+import NavHeader from "./components/NavHeader";
+import TodoContainer from "./components/TodoContainer";
+import "./MyApp.css";
 
 function App() {
   return (
     <>
-      <h1>Todo List</h1>
-      <TodoList />
+      {/* <!-- Navigation header --> */}
+      <NavHeader />
+
+      {/* <!-- Main content --> */}
+      <main className="main">
+        {/* <!-- Section container --> */}
+        <TodoContainer />
+      </main>
+
+      {/* <!-- Footer --> */}
+      <Footer />
     </>
   );
 }
