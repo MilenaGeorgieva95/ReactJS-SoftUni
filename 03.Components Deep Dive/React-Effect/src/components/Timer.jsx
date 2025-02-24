@@ -7,12 +7,16 @@ export default function Timer() {
   const [isManual, setIsManual] = useState(false);
 
   useEffect(() => {
+    let timeout;
     if (!isManual) {
-      setTimeout(() => {
+      timeout = setTimeout(() => {
         setTime((curTime) => curTime + 1);
         setIsManual(false);
       }, 1000);
     }
+    return () => {
+      clearTimeout(timeout);
+    };
   }, [time, isManual]);
 
   const addTimeHandler = () => {
