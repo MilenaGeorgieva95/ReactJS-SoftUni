@@ -1,9 +1,9 @@
 import "./App.css";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
-import Pagination from "./components/user-list/Pagination";
-import SearchBar from "./components/user-list/SearchBar";
-import Table from "./components/user-list/Table";
+import Pagination from "./components/user-section/Pagination";
+import SearchBar from "./components/user-section/SearchBar";
+import Table from "./components/user-section/Table";
 
 function App() {
   return (
