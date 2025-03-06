@@ -8,25 +8,36 @@ const wait = (time) => {
   });
 };
 
-export default function UncontrolledForm() {
+export default function ControlledForm() {
   const [pending, setPending] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const submitHandler = async (e) => {
     e.preventDefault();
     setPending(true);
-    const formData = new FormData(e.currentTarget);
-    const username = formData.get("username");
-    const password = formData.get("password");
-
     await wait(1500);
     setPending(false);
+    //! username and password are kept in the state
+    console.log(username, password);
+  };
 
-    console.log(Object.fromEntries(formData));
+  const userNameChangeHandler = (e) => {
+    //executes on every change
+    const username = e.target.value;
+    console.log(username);
+    setUsername(username);
+  };
+
+  const userPasswordChangehandler = (e) => {
+    const password = e.target.value;
+    console.log(password);
+    setPassword(password);
   };
   return (
     <>
       <h2 className="text-2xl font-semibold text-center mb-6">
-        Uncontrolled Form
+        Controlled Form
       </h2>
 
       <form
@@ -35,14 +46,16 @@ export default function UncontrolledForm() {
       >
         <div className="mb-4">
           <label
-            htmlFor="username1"
+            htmlFor="username"
             className="block text-sm font-medium text-gray-700"
           >
             Username:
           </label>
           <input
+            onChange={userNameChangeHandler}
+            value={username}
             type="text"
-            id="username1"
+            id="username"
             name="username"
             className="mt-2 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
@@ -50,14 +63,16 @@ export default function UncontrolledForm() {
 
         <div className="mb-4">
           <label
-            htmlFor="password1"
+            htmlFor="password"
             className="block text-sm font-medium text-gray-700"
           >
             Password:
           </label>
           <input
+            onChange={userPasswordChangehandler}
+            value={password}
             type="text"
-            id="password1"
+            id="password"
             name="password"
             className="mt-2 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
@@ -78,4 +93,5 @@ export default function UncontrolledForm() {
   );
 }
 
-//! value, defaultValue, placeholder
+//! value use onChange
+//! defaultValue, placeholder
