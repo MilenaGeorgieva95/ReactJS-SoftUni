@@ -1,4 +1,5 @@
 import ControlledForm from "./components/ControlledForm";
+import FormAction from "./components/FormAction";
 import RefUncontrolledForm from "./components/RefUncontrolledForm";
 import UncontrolledForm from "./components/uncontrolledForm";
 import UnifiedControlledForm from "./components/UnifiedControlledForm";
@@ -12,6 +13,7 @@ function App() {
       <UnifiedControlledForm />
       <UseRef />
       <RefUncontrolledForm />
+      <FormAction />
     </>
   );
 }
