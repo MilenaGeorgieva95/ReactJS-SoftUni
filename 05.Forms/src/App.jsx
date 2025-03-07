@@ -4,6 +4,7 @@ import RefUncontrolledForm from "./components/RefUncontrolledForm";
 import UncontrolledForm from "./components/uncontrolledForm";
 import UnifiedControlledForm from "./components/UnifiedControlledForm";
 import UseRef from "./components/UseRef";
+import UseTransition from "./components/UseTransition";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <UseRef />
       <RefUncontrolledForm />
       <FormAction />
+      <UseTransition />
     </>
   );
 }
