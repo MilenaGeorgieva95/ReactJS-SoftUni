@@ -9,7 +9,9 @@
               </BrowserRouter>
             );
 
-- in App.jsx =. import {Routes} from'react-router'
+- in App.jsx => import {Routes} from'react-router'
+
+### Use Link
 
 - in Header.jsx => import { Link } from "react-router";
 replace <a> with
@@ -17,3 +19,9 @@ replace <a> with
   to={item.path}
   className="text-sm/6">{item.name}
 </Link>
+
+### Use dynamic params
+
+- in ProductDetails.jsx => import { useParams } from "react-router";
+  const params = useParams();
+  console.log(params.productId);
