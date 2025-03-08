@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import "./App.css";
 import Catalog from "./components/Catalog";
 import Pricing from "./components/Pricing";
+import NotFound from "./components/404";
 
 function App() {
   // const location = useLocation();
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       {/* <Home /> */}
     </div>
