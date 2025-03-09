@@ -29,6 +29,7 @@ export default function Header() {
             />
           </a>
         </div>
+
         <div className="flex lg:hidden">
           <button
             type="button"
@@ -104,6 +105,7 @@ export default function Header() {
                   </Link>
                 ))}
               </div>
+
               <div className="py-6">
                 <a
                   href="#"
@@ -112,6 +114,7 @@ export default function Header() {
                   Log in
                 </a>
               </div>
+              <div className="py-6"></div>
             </div>
           </div>
         </DialogPanel>

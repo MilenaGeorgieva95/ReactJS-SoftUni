@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import CatalogItem from "./CatalogItem";
+import Sort from "./Sort";
+import { useSearchParams } from "react-router";
 
 // const products = [
 //   {
@@ -42,19 +44,42 @@ import CatalogItem from "./CatalogItem";
 // // ];
 
 export default function Catalog() {
+  const [search, setSearch] = useSearchParams();
+  // console.log(Object.fromEntries(search));
+
   const [products, setProducts] = useState([]);
+  const [displayProducts, setDisplayProducts] = useState([]);
+  // console.log(displayProducts);
+
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
       .then((data) => setProducts(data));
   }, []);
+
+  useEffect(() => {
+    const filter = Object.fromEntries(search);
+    if (filter.sortBy) {
+      setDisplayProducts(
+        [...products].sort((p1, p2) =>
+          filter.dir === "asc" ? p1.price - p2.price : p2.price - p1.price
+        )
+      );
+    } else if (filter.top) {
+      setDisplayProducts(products.filter((el) => el.trating?.rate > 4));
+    } else {
+      setDisplayProducts([...products]);
+    }
+  }, [products, search]);
+
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <h2 className="sr-only">Products</h2>
+        <Sort />
 
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-          {products.map((product) => (
+          {displayProducts.map((product) => (
             <CatalogItem key={product.id} product={product} />
           ))}
         </div>
