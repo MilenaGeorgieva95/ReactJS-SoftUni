@@ -8,6 +8,7 @@ import Catalog from "./components/Catalog";
 import Pricing from "./components/Pricing";
 import NotFound from "./components/404";
 import ProductDetails from "./components/ProductDetails";
+import Contacts from "./components/Contacts";
 
 function App() {
   // const location = useLocation();
@@ -22,6 +23,7 @@ function App() {
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/catalog/:productId" element={<ProductDetails />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/contacts" element={<Contacts />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       {/* <Home /> */}
