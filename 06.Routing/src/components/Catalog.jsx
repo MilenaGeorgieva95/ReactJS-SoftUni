@@ -66,7 +66,9 @@ export default function Catalog() {
         )
       );
     } else if (filter.top) {
-      setDisplayProducts(products.filter((el) => el.trating?.rate > 4));
+      setDisplayProducts(products.filter((el) => el.rating?.rate > 4));
+    } else if (filter.popular) {
+      setDisplayProducts(products.filter((el) => el.rating?.count >= 100));
     } else {
       setDisplayProducts([...products]);
     }
