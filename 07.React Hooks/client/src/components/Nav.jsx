@@ -1,29 +1,18 @@
 import React, { useState } from "react";
-import {
-  AppstoreOutlined,
-  MailOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
+import { AppstoreOutlined, MailOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
+import { Link } from "react-router";
+
 const items = [
   {
-    label: "Navigation One",
+    label: <Link to="/">Home</Link>,
     key: "mail",
     icon: <MailOutlined />,
   },
   {
-    label: "Navigation Two",
+    label: <Link to="/messages">Messages</Link>,
     key: "app",
     icon: <AppstoreOutlined />,
-  },
-
-  {
-    key: "alipay",
-    label: (
-      <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-        Navigation Four - Link
-      </a>
-    ),
   },
 ];
 const Nav = () => {
