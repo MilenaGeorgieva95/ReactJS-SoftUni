@@ -1,3 +1,4 @@
+import { Route, Routes } from "react-router";
 import "./App.css";
 import Chat from "./components/Chat";
 import Nav from "./components/Nav";
@@ -14,7 +15,13 @@ function App() {
     <>
       <Nav />
       <h1>React Hooks</h1>
-      {pending ? <Spin /> : <Chat messages={messages} />}
+      <Routes>
+        <Route path="/" element=<h1>Home</h1> />
+        <Route
+          path="/messages"
+          element={pending ? <Spin /> : <Chat messages={messages} />}
+        />
+      </Routes>
     </>
   );
 }
