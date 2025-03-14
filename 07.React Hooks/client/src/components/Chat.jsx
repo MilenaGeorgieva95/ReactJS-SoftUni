@@ -62,6 +62,7 @@ const Chat = () => {
       itemLayout="horizontal"
       loadMore={loadMore}
       dataSource={list}
+      bordered={true}
       renderItem={(item) => (
         <List.Item
           actions={[
