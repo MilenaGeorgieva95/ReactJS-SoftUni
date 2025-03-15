@@ -5,15 +5,15 @@ export default function useFetch(url, defaultMessages = {}) {
   const [pending, setPending] = useState(true);
   useEffect(() => {
     setPending(true);
-
     const abortController = new AbortController();
 
     fetch(url, { signal: abortController.signal })
       .then((res) => res.json())
       .then((result) => {
         setState(Object.values(result));
+      })
+      .finally(() => {
         setPending(false);
-        return;
       });
 
     return () => {
