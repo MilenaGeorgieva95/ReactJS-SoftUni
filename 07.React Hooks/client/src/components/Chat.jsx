@@ -1,12 +1,11 @@
 import React from "react";
 import { Avatar, List, Skeleton } from "antd";
 
-const Chat = ({ messages, pending }) => {
+const Chat = ({ messages }) => {
   return (
     <List
       className="demo-loadmore-list"
       itemLayout="horizontal"
-      loading={pending}
       dataSource={messages}
       bordered={true}
       renderItem={(message) => (

@@ -11,9 +11,11 @@ export default function useFetch(url, defaultMessages = {}) {
     fetch(url, { signal: abortController.signal })
       .then((res) => res.json())
       .then((result) => {
-        return setState(Object.values(result));
+        setState(Object.values(result));
+        setPending(false);
+        return;
       });
-    setPending(false);
+
     return () => {
       abortController.abort();
     };
