@@ -10,7 +10,7 @@ const items = [
     icon: <MailOutlined />,
   },
   {
-    label: <Link to="/messages">Messages</Link>,
+    label: <Link to="/chat">Messages</Link>,
     key: "app",
     icon: <AppstoreOutlined />,
   },
@@ -22,12 +22,15 @@ const Nav = () => {
     setCurrent(e.key);
   };
   return (
-    <Menu
-      onClick={onClick}
-      selectedKeys={[current]}
-      mode="horizontal"
-      items={items}
-    />
+    <>
+      <Menu
+        onClick={onClick}
+        selectedKeys={[current]}
+        mode="horizontal"
+        items={items}
+      />
+      <h1>React Hooks</h1>
+    </>
   );
 };
 export default Nav;
