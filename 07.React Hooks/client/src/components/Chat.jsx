@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, List, Skeleton } from "antd";
+import { Avatar, List } from "antd";
 
 const Chat = ({ messages }) => {
   return (
@@ -19,7 +19,11 @@ const Chat = ({ messages }) => {
             avatar={
               <Avatar src="https://static.vecteezy.com/system/resources/thumbnails/002/002/403/small/man-with-beard-avatar-character-isolated-icon-free-vector.jpg" />
             }
-            title={<a href="https://ant.design">{message.author}</a>}
+            title={
+              <a href="https://ant.design">
+                {message.author + " - " + message.username}
+              </a>
+            }
             description={message.content}
           />
         </List.Item>

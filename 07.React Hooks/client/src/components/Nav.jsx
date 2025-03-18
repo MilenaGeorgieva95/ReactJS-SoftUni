@@ -19,6 +19,11 @@ const items = [
     key: "send",
     icon: <MailOutlined />,
   },
+  {
+    label: <Link to="/login">Login</Link>,
+    key: "login",
+    icon: <MailOutlined />,
+  },
 ];
 const Nav = () => {
   const [current, setCurrent] = useState("mail");

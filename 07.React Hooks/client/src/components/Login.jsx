@@ -1,8 +1,8 @@
 import useForm from "../hooks/useForm";
 
-const url = "http://localhost:3030/jsonstore/messages";
+const url = "http://localhost:3030/jsonstore/users";
 
-export default function Send({ user }) {
+export default function Login({ userLogin }) {
   const formSubmit = async (values) => {
     const options = {
       method: "POST",
@@ -10,41 +10,38 @@ export default function Send({ user }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        author: values.author,
-        content: values.message,
-        username: user,
+        username: values.username,
+        password: values.password,
       }),
     };
 
     const res = await fetch(url, options);
     console.log(res);
+
+    userLogin(values.username);
   };
 
   const { values, changeHandler, submitHandler } = useForm(
-    {
-      message: "",
-      author: "",
-    },
+    { username: "", password: "" },
     formSubmit
   );
-
   return (
     <>
-      <h1>Send</h1>
+      <h1>Login</h1>
       <div style={{ maxWidth: "300px" }}>
         <form action={submitHandler}>
           <input
             onChange={changeHandler}
-            value={values.author}
+            value={values.username}
             type="text"
-            name="author"
+            name="username"
             placeholder="Basic usage"
           />
           <input
             onChange={changeHandler}
-            value={values.message}
+            value={values.password}
             type="text"
-            name="message"
+            name="password"
             placeholder="Basic usage"
           />
           <button>Send</button>
