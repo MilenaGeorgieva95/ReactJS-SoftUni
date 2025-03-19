@@ -1,8 +1,16 @@
+import { useContext, use } from "react";
+import { UserContext } from "../contexts/UserContext";
 import useForm from "../hooks/useForm";
 
 const url = "http://localhost:3030/jsonstore/messages";
 
-export default function Send({ user }) {
+export default function Send() {
+  const { user } = useContext(UserContext);
+
+  // if(true){
+  //   const {user} = use(UserContext)
+  // }
+
   const formSubmit = async (values) => {
     const options = {
       method: "POST",

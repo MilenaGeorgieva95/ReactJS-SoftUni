@@ -1,8 +1,12 @@
+import { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
 import useForm from "../hooks/useForm";
 
 const url = "http://localhost:3030/jsonstore/users";
 
-export default function Login({ userLogin }) {
+export default function Login({}) {
+  const { userLoginHandler } = useContext(UserContext);
+
   const formSubmit = async (values) => {
     const options = {
       method: "POST",
@@ -18,7 +22,7 @@ export default function Login({ userLogin }) {
     const res = await fetch(url, options);
     console.log(res);
 
-    userLogin(values.username);
+    userLoginHandler(values.username);
   };
 
   const { values, changeHandler, submitHandler } = useForm(

@@ -1,8 +1,32 @@
-# React + Vite
+## Context
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- contexts/UserContext.js
+  import { createContext } from "react";
+  export const UserContext = createContext({
+  user: "",
+  userLoginHandler() {},
+  });
 
-Currently, two official plugins are available:
+- App.jsx
+  import { UserContext } from "./contexts/UserContext";
+  <UserContext.Provider value={{ userLoginHandler, user }}>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Send.jsx
+  import { useContext } from "react";
+  import { UserContext } from "../contexts/UserContext";
+  const { user } = useContext(UserContext);
+
+- Login.jsx
+  import { useContext } from "react";
+  import { UserContext } from "../contexts/UserContext";
+  const { userLoginHandler } = useContext(UserContext);
+
+## use API - same as useContext but can be called conditionally
+
+- Send.jsx
+  import { use } from "react";
+  import { UserContext } from "../contexts/UserContext";
+
+if(true){
+const {user} = use(UserContext)
+}
